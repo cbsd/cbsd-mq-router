@@ -1,8 +1,8 @@
 #!/bin/sh
 export PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
-pgm="${0##*/}"		# Program basename
-progdir="${0%/*}"	# Program directory
-
+pgm="${0##*/}"				# Program basename
+progdir="${0%/*}"			# Program directory
+workdir=$( realpath ${progdir} )	# realpath dir
 cd ${proddir}
 
 # Check go install
@@ -18,9 +18,9 @@ if [ -z "${GOVERS}" ]; then
 	exit 1
 fi
 
-export GOPATH="${progdir}"
-export GOBIN="${progdir}"
+export GOPATH="${workdir}"
+export GOBIN="${workdir}"
 
 set -e
 go get
-go build -ldflags "${LDFLAGS} -extldflags '-static'" -o "${progdir}/cbsd-mq-router"
+go build -ldflags "${LDFLAGS} -extldflags '-static'" -o "${workdir}/cbsd-mq-router"
