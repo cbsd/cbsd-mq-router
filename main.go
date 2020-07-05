@@ -16,15 +16,6 @@ var (
 	cbsdEnv		= flag.String("cbsdenv", "/usr/jails", "CBSD workdir environment")
 )
 
-func usage() {
-	_, err := fmt.Fprintf(os.Stderr, "usage: %s [-config config.json] [-cbsdenv CBSD workdir]\n", os.Args[0])
-	if err != nil {
-		panic(err)
-	}
-	flag.PrintDefaults()
-	os.Exit(2)
-}
-
 func check_cbsd_env (cbsdenv string) bool {
 
 	name := fmt.Sprintf("%s/nc.inventory",cbsdenv)
@@ -40,7 +31,6 @@ func check_cbsd_env (cbsdenv string) bool {
 }
 
 func main() {
-	flag.Usage = usage
 	flag.Parse()
 
 	config, err := LoadConfiguration(*configFile)
