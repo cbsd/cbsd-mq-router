@@ -15,7 +15,6 @@ logdir="/var/log/${name}"
 logfile="${logdir}/cbsd_mq_router.log"
 extra_commands="reload"
 command="/usr/local/sbin/cbsd-mq-router"
-cbsd_mq_router_user=${cbsd_mq_router_user-"nobody"}
 cbsd_mq_router_config=${cbsd_mq_router_config-"/usr/local/etc/cbsd-mq-router.json"}
 required_files="${cbsd_mq_router_config}"
 
@@ -46,8 +45,7 @@ start()
 {
 	[ ! -d ${logdir} ] && mkdir -p ${logdir}
 	touch ${logfile}
-	chown ${cbsd_mq_router_user} ${logdir} ${logfile}
-	/usr/sbin/daemon -u ${cbsd_mq_router_user} -f -R5 -p ${pidfile} -P ${daemon_pidfile} -o ${logfile} ${command} ${cbsd_mq_router_args}
+	/usr/sbin/daemon -f -R5 -p ${pidfile} -P ${daemon_pidfile} -o ${logfile} ${command} ${cbsd_mq_router_args}
 }
 
 reload()
