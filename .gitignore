@@ -1,4 +1,4 @@
 .idea/
-src
-cbsd-mq-router
-log
+./src
+./cbsd-mq-router
+./log
