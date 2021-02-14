@@ -102,7 +102,7 @@ func beanstalkdConsume(config BeanstalkConfig) error {
 		id, body, err := c.Reserve(time.Duration(config.ReserveTimeout) * time.Second)
 
 		if err != nil {
-			Infof("\nid: %d, res: %s\n",id, err.Error())
+			//Infof("\nid: %d, res: %s\n",id, err.Error())
 		}
 
 		if id == 0 {
