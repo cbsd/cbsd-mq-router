@@ -3,7 +3,6 @@
     "cbsdcolor": false,
     "broker": "beanstalkd",
     "logfile": "/dev/stdout",
-    "imagelist": "/usr/jails/tmp/bhyve-templates.json",
     "beanstalkd": {
       "uri": "127.0.0.1:11300",
       "tube": "cbsd_zpool1",
