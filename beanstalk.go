@@ -102,7 +102,11 @@ func beanstalkdConsume(config BeanstalkConfig) error {
 		id, body, err := c.Reserve(time.Duration(config.ReserveTimeout) * time.Second)
 
 		if err != nil {
-			//Infof("\nid: %d, res: %s\n",id, err.Error())
+			if ( err.Error() == "reserve-with-timeout: timeout" ) {
+				//Infof("\nTIMEOUT: id: %d, res: [%s]\n",id, err.Error())
+			} else {
+				Fatalf("\nFATAL ERROR: id: %d, res: [%s]\n",id, err.Error())
+			}
 		}
 
 		if id == 0 {
