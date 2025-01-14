@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # PROVIDE: cbsd_mq_router
-# REQUIRE: NETWORK
-# BEFORE:  DAEMON
+# REQUIRE: FILESYSTEMS LOGIN NETWORK beanstalkd cbsdd
+# KEYWORD: shutdown
 
 . /etc/rc.subr
 

@@ -1,5 +1,4 @@
-// CBSD Project 2013-2021
-// CBSD Team <cbsd+subscribe@lists.tilda.center>
+// CBSD Project 2013-2025
 // beanstalkd driven CBSD sample
 package main
 
