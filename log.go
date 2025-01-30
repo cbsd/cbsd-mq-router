@@ -32,7 +32,7 @@ func log_init(logfile string) {
 	f, err := os.OpenFile(logfile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0664)
 
 	if err != nil {
-		fmt.Printf("config load error: %s", err)
+		fmt.Printf("log_init: config load error: %s", err)
 		os.Exit(1)
 	}
 

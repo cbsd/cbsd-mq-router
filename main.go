@@ -34,7 +34,7 @@ func main() {
 	config, err := LoadConfiguration(*configFile)
 
 	if err != nil {
-		fmt.Println("config load error")
+		fmt.Println("main: config load error")
 		os.Exit(1)
 	}
 
