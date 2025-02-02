@@ -23,3 +23,14 @@ go build
 pkg update -f
 ```
 
+## update mods
+
+```
+rm -f go.mod go.sum
+```
+
+```
+go mod init cbsd-mq-router
+go mod tidy
+```
+

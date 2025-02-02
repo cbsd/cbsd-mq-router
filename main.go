@@ -60,7 +60,6 @@ func main() {
 	Infof("Broker engine: %s\n", *broker)
 	Infof("Logfile: %s\n", config.Logfile)
 	Infof("MQ logdir: %s\n", config.BeanstalkConfig.LogDir)
-
 	os.Setenv("cbsd_workdir", *cbsdEnv)
 	os.Setenv("workdir", *cbsdEnv)
 	os.Setenv("NOINTER", "1")
